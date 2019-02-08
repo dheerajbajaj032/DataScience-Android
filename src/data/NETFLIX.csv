@@ -1,0 +1,8 @@
+,TESTId,Native_Pss,Native_Private_Dirty,Native_Heap_Alloc,Native_Heap_Free,code_Pss,code_Private_Dirty
+0,Netflix_PinScreen,18154,18136,53240,1799,27212,684
+1,Netflix_PinScreen,15618,13380,53228,1811,27214,684
+2,Netflix_HomeScreen,19907,19792,55614,2241,15172,420
+3,Netflix_DetailScreen,17919,17808,53396,1899,15784,420
+4,Netflix_PlayerScreen,41726,41628,76486,1337,20174,676
+5,Netflix_Scrolling,42549,42452,50563,4220,19242,660
+6,Netflix_SearchScreen,42296,42264,51054,4241,16351,648
