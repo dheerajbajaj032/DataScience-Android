@@ -26,3 +26,21 @@ plt.title("Netflix")
 df2.boxplot()
 
 plt.show()
+
+
+# Plot the count of each unique label
+# sns.countplot(df['TESTId'], label='Count')
+# # Boxplot the Input feature numeric variable
+# df.drop('TESTId', axis=1).plot(kind='box', subplots=True, layout=(3, 2), sharex=True,
+#                                sharey=True, figsize=(9, 9))
+# plt.title = 'Box Plot for each input variable'
+# # Histogram of Input features numeric variable
+# df.drop('TESTId', axis=1).hist(bins=20, figsize=(9, 9))
+# plt.title = 'Histogram for each input variable'
+# Scatter Matrix for each input variable
+
+# cmap = plt.get_cmap('gnuplot')
+# scatter = pd.scatter_matrix(X_train_sub, c=y_train, marker='o', s=40,
+#                             hist_kwds={'bins': 15}, figsize=(9, 9), cmap=cmap)
+# plt.suptitle('Scatter-matrix for each input variable')
+# # plt.savefig('Android_Box')
