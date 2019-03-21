@@ -54,8 +54,6 @@ Project Organization
 
 --------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template
-
 Android Application performance metrics include ( Memory, CPU, Network, Systrace Analysis and many more .. ) Out of all memory is most important metric and can be used to create initial data
 
 Get data from Phone using Memory dumpsys ( Adb shell dumpsys meminfo --Package name)
@@ -105,6 +103,14 @@ Finally splitting dataframe into Xtrain & Ytrain :
 X_train = df_train[columns[1:]]
 y_train = df_train['TESTId'].values
 
-    
-    </a>. #cookiecutterdatascience</small>
-</p>
+--------
+
+Finally 
+
+After your siccessfully created test and train csv files ( in my case its Android.csv and Netflix.csv ), simply run train_model_std&mean.py module
+
+The Output :
+1. Box plot, Standard Deviation and Mean Plot
+2. Numerical difference between test app data and benchmark app data 
+
+<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
