@@ -1,8 +1,7 @@
-,TESTId,Native_Pss,Native_Private_Dirty,Native_Heap_Alloc,Native_Heap_Free,code_Pss,code_Private_Dirty
-1,Netflix_PinScreen,15618,13380,53228,1811,27214,684
-2,Netflix_HomeScreen,19907,19792,55614,2241,15172,420
-3,Netflix_DetailScreen,17919,17808,53396,1899,15784,420
-4,Netflix_PlayerScreen,68415,63596,108553,10486,5427,480
-5,Netflix_Scrolling,42296,42264,51054,4241,16351,648
-6,Netflix_SearchScreen,629,116,19864,1607,415,32
-
+,TESTId,Code,Native_Heap,System,Private_Others,Graphics,Java_Heap,Stack
+0,Netflix_PinScreen,14228,8552,14011,38672,0,2192,28
+1,Netflix_HomeScreen,14280,11828,10134,48944,0,3072,28
+2,Netflix_DetailScreen,15108,15052,9053,50032,0,2348,28
+3,Netflix_PlayerScreen,26000,34064,10957,52868,0,2800,28
+4,Netflix_Scrolling,22928,47140,10817,55824,0,3152,28
+5,Netflix_SearchScreen,21960,45600,9624,52984,0,2556,28

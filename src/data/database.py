@@ -13,22 +13,23 @@ class DatabaseClass:
         try:
             self.conn.execute('''CREATE TABLE ANDROID
                      (TESTId     TEXT     NOT NULL,
-                     Native_Pss           INT    NOT NULL,
-                     Native_Private_Dirty           INT    NOT NULL,
-                     Native_Heap_Alloc           INT    NOT NULL,
-                     Native_Heap_Free           INT    NOT NULL,
-                     code_Pss           INT    NOT NULL,
-                     code_Private_Dirty           INT    NOT NULL
+                     Code           INT    NOT NULL,
+                     Native_Heap           INT    NOT NULL,
+                     System           INT    NOT NULL,
+                     Private_Others           INT    NOT NULL,
+                     Graphics           INT    NOT NULL,
+                     Java_Heap           INT    NOT NULL,
+                     Stack           INT    NOT NULL
                      );''')
             print "Table created successfully"
         except Exception as e:
-            print "Table already exists"
+            print "Table already exists" + str(e)
 
-    def insertTable(self, testid, pss, nativedirty, heapalloc, heapfree, codepss, codedirty):
+    def insertTable(self, testid, Code, Native_Heap, System, Private_Others, Graphics, Java_Heap, Stack):
         global cur
-        sql = '''INSERT INTO ANDROID (TESTId,Native_Pss,Native_Private_Dirty,Native_Heap_Alloc,Native_Heap_Free,code_Pss,code_Private_Dirty) \
-              VALUES (?,?,?,?,?,?,?)'''
-        query = (testid, pss, nativedirty, heapalloc, heapfree, codepss, codedirty);
+        sql = '''INSERT INTO ANDROID (TESTId,Code, Native_Heap, System, Private_Others, Graphics, Java_Heap, Stack) \
+              VALUES (?,?,?,?,?,?,?,?)'''
+        query = (testid, Code, Native_Heap, System, Private_Others, Graphics, Java_Heap, Stack);
         cur = self.conn.cursor()
         cur.execute(sql, query)
         self.conn.commit()
@@ -39,8 +40,7 @@ class DatabaseClass:
     def fetchrows(self):
         df = pd.read_sql_query("SELECT * FROM ANDROID", self.conn)
         df.set_index('TESTId')
-        #print df
-        #df.to_csv("ANDROID.csv")
+        df.to_csv("ANDROID.csv")
         return df
 
     def closeDB(self):

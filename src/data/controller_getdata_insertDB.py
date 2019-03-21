@@ -10,16 +10,23 @@ class ControllerClass:
         self.databaseobj.createTable()
 
     def getdata_insertdb(self, pname, id):
-        data_dict = GetData().getmeminfo(pname)
-        pss = data_dict['Native_Pss']
-        nativedirty = data_dict['Native_Private_Dirty']
-        heapalloc = data_dict['Native_Heap_Alloc']
-        heapfree = data_dict['Native_Heap_Free']
-        codepss = data_dict['code_Pss']
-        codedirty = data_dict['code_Private_Dirty']
-        self.databaseobj.insertTable(testid=id, pss=pss, nativedirty=nativedirty, heapalloc=heapalloc,
-                                     heapfree=heapfree, codepss=codepss, codedirty=codedirty)
-        self.databaseobj.closeDB()
+        try:
+            data_dict = GetData().App_Summary(pname)
+            print "Dheeraj" + str(data_dict)
+            code = data_dict['Code']
+            nativeheap = data_dict['Native Heap']
+            system = data_dict['System']
+            private_others = data_dict['Private Other']
+            graphics = data_dict['Graphics']
+            java_heap = data_dict['Java Heap']
+            stack = data_dict['Stack']
+            self.databaseobj.insertTable(testid=id, Code=code, Native_Heap=nativeheap,
+                                         System=system, Private_Others=private_others,
+                                         Graphics=graphics, Java_Heap=java_heap, Stack=stack)
+        except Exception as e:
+            print e
+
+        #self.databaseobj.closeDB()
 
     def fetch_Dataframe(self):
         return self.databaseobj.fetchrows()

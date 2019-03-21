@@ -64,9 +64,33 @@ class GetData:
             break
 
         if line_dict:
-            #return line_dict["Total_Heap_Alloc"]
+            # return line_dict["Total_Heap_Alloc"]
             return line_dict
         return "App not started.Unable to fetch meminfo...."
+
+    def App_Summary(self, pname):
+        try:
+            line_dict = {}
+            ls = subprocess.Popen(["adb", "shell", "dumpsys", "meminfo", pname],
+                                  stdout=subprocess.PIPE)
+            out = ls.stdout.readlines()
+            i1 = [i for i, s in enumerate(out) if 'App Summary' in s]
+            i2 = [i for i, s in enumerate(out) if 'Objects' in s]
+            if i1 or i2 is not None:
+                out = out[i1[0]:i2[0]]
+                out_sub = out[3:10]
+                for i in out_sub:
+                    data = i.split(':')
+                    line_dict[data[0].lstrip()] = int(data[1].strip('\n'))
+
+            if line_dict:
+                return line_dict
+            return "App not started.Unable to fetch meminfo...."
+
+        except Exception as e:
+            print e
+
+
 
     def getcpuinfo(self, pname):
         lm = subprocess.Popen(["adb", "shell", "dumpsys", "cpuinfo", "| grep -i", pname], stdout=subprocess.PIPE)
@@ -146,4 +170,4 @@ class GetData:
         return randint(0, 9)
 
 
-#print GetData().getmeminfo("com.google.android.perftesting")
+#print GetData().App_Summary("tv.airtel.smartstick")

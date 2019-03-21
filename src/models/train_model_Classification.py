@@ -1,11 +1,14 @@
 import matplotlib
 import os
+import warnings
+warnings.simplefilter(action='ignore', category=Warning)
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
 matplotlib.use('TkAgg')
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -21,7 +24,7 @@ from src.models.resource import *
 class PerformanceDataClass:
 
     def __init__(self):
-        pd.set_option('display.max_columns', 8)
+        #pd.set_option('display.max_columns', 8)
         script_path = os.path.dirname(__file__)
         parent_file = os.path.join(script_path, os.pardir)
         self.data_test_path = os.path.join(parent_file, 'data', 'ANDROID.csv')
@@ -30,10 +33,14 @@ class PerformanceDataClass:
     def getTrainValues(self):
         print self.data_train_path
         df_train = pd.read_csv(self.data_train_path, sep=',', usecols=columns)
+        print df_train
         # index_column_unique = df['TESTId'].unique()
         df_train['TESTId'] = df_train['TESTId'].map(train_rows, na_action='ignore')
+        print df_train
         x_train_sub = df_train[columns[1:]]
+        print x_train_sub
         y_train = df_train['TESTId'].values
+        print y_train
 
         return x_train_sub, y_train
 
@@ -65,10 +72,11 @@ class PerformanceModel(PerformanceDataClass):
 
         print "Accuracy of Decision Tree classifier on training set: {:.2f}".format(
             accuracy_score(y_train, ypred_train))
-        print "Accuracy of Decision Tree classifier on test set: {:.2f}".format(accuracy_score(y_test, ypred_test))
+        print "Confusion matrix Train Data : \n" + str(confusion_matrix(y_train, ypred_train))
 
-        print confusion_matrix(y_train, ypred_train)
-        print confusion_matrix(y_test, ypred_test)
+        print "Accuracy of Decision Tree classifier on test set: {:.2f}".format(
+            accuracy_score(y_test, ypred_test))
+        print "Confusion matrix Test Data : \n" + str(confusion_matrix(y_test, ypred_test))
 
 
 print PerformanceModel().scaling_ModelPrediction()
