@@ -8,15 +8,8 @@ import pandas
 def main():
     logger = logging.getLogger(__name__)
     logger.info('Start Logging')
-    obj = ControllerClass('AndroidPerf.db')
+    obj = ControllerClass('NetflixPerf.db')
     logger.info('Perform test case to insert in db')
-    #obj.getdata_insertdb('tv.airtel.smartstick', 'Airtel_PinScreen')
-    #obj.getdata_insertdb('tv.airtel.smartstick', 'Airtel_HomeScreen')
-    #obj.getdata_insertdb('tv.airtel.smartstick', 'Airtel_DetailScreen')
-    #obj.getdata_insertdb('tv.airtel.smartstick', 'Airtel_PlayerScreen')
-    #obj.getdata_insertdb('tv.airtel.smartstick', 'Airtel_Scrolling')
-    #obj.getdata_insertdb('tv.airtel.smartstick', 'Airtel_SearchScreen')
-
     #obj.getdata_insertdb('com.netflix.ninja', 'Netflix_PinScreen')
     #obj.getdata_insertdb('com.netflix.ninja', 'Netflix_HomeScreen')
     #obj.getdata_insertdb('com.netflix.ninja', 'Netflix_DetailScreen')
