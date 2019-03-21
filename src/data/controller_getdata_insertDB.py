@@ -12,7 +12,6 @@ class ControllerClass:
     def getdata_insertdb(self, pname, id):
         try:
             data_dict = GetData().App_Summary(pname)
-            print "Dheeraj" + str(data_dict)
             code = data_dict['Code']
             nativeheap = data_dict['Native Heap']
             system = data_dict['System']
