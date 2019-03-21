@@ -1,7 +1,7 @@
 columns = ["TESTId", "Code", "Native_Heap", "System", "Private_Others", "Graphics", "Java_Heap", "Stack"]
-test_rows = {"Airtel_PinScreen": 2, "Airtel_HomeScreen": 3, "Airtel_DetailScreen": 4,
-     "Airtel_PlayerScreen": 5,
-     "Airtel_Scrolling": 6, "Airtel_SearchScreen": 7}
+test_rows = {"PinScreen": 2, "HomeScreen": 3, "DetailScreen": 4,
+     "PlayerScreen": 5,
+     "Scrolling": 6, "SearchScreen": 7}
 train_rows = {"Netflix_PinScreen": 2, "Netflix_HomeScreen": 3, "Netflix_DetailScreen": 4,
      "Netflix_PlayerScreen": 5,
      "Netflix_Scrolling": 6, "Netflix_SearchScreen": 7}
