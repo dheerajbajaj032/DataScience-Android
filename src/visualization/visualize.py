@@ -25,12 +25,12 @@ df1 = pd.read_csv(data_Android_path, sep=',', index_col='TESTId', usecols=column
 #print df1
 
 plt.figure(figsize=(20, 10))
-plt.title("Airtel OTT")
+plt.title("Test Plot")
 #df1.boxplot()
 
 df2 = pd.read_csv(data_Netflix_path, sep=',', index_col='TESTId', usecols=columns)
 plt.figure(figsize=(20, 10))
-plt.title("Netflix")
+plt.title("Benchmark Plot")
 #df2.boxplot()
 
 # Plot the count of each unique label
