@@ -1,7 +1,7 @@
-AndroidPerformance
+AndroidPerformance using DataScience
 ==============================
 
-Predicting Android build Performance using Machine Learning
+Analysing Android build Performance using DataScience
 
 Project Organization
 ------------
