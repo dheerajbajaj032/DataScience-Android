@@ -168,6 +168,3 @@ class GetData:
 
     def test_rand(self):
         return randint(0, 9)
-
-
-#print GetData().App_Summary("tv.airtel.smartstick")
